@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetana Publications | চেতনা পাবলিকেশন্স</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff007f;
+            --light: #f4f7f6;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        .bengali-text {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        /* Header & Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #ffe6f2;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        /* Books Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-cover {
+            height: 200px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+
+        .book-info {
+            padding: 1.5rem;
+        }
+
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-author {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-read {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-read:hover { background-color: #550bb0; }
+
+        .btn-download {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .btn-download:hover { background-color: #1a5ac3; }
+
+        .btn-share {
+            background-color: #e0e0e0;
+            color: var(--dark);
+            flex: 0 0 auto;
+        }
+        .btn-share:hover { background-color: #d0d0d0; }
+
+        /* Review Section */
+        .review-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .review-form input, .review-form textarea {
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .review-form button {
+            background: var(--accent);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background: #d6006b;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            header h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chetana Publications</h1>
+        <h2 class="bengali-text">চেতনা পাবলিকেশন্স</h2>
+        <p>Discover, read, and share our curated collection of books. Empowering minds through literature.</p>
+    </header>
+
+    <div class="container">
+        <h3 class="section-title">Our Library</h3>
+        
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="book-info">
+                    <h4 class="book-title">The Art of Programming</h4>
+                    <p class="book-author bengali-text">লেখক: Abhik Dutta</p>
+                    <div class="btn-group">
+                        <a href="sample-book.pdf" target="_blank" class="btn btn-read"><i class="fa-solid fa-eye"></i> Read</a>
+                        <a href="sample-book.pdf" download class="btn btn-download"><i class="fa-solid fa-download"></i> DL</a>
+                        <button class="btn btn-share" onclick="shareBook('The Art of Programming')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover" style="background: linear-gradient(45deg, #a18cd1 0%, #fbc2eb 100%);">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <div class="book-info">
+                    <h4 class="book-title bengali-text">গল্প সংকলন (Story Collection)</h4>
+                    <p class="book-author bengali-text">লেখক: Unknown</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-read"><i class="fa-solid fa-eye"></i> Read</a>
+                        <a href="#" download class="btn btn-download"><i class="fa-solid fa-download"></i> DL</a>
+                        <button class="btn btn-share" onclick="shareBook('গল্প সংকলন')"><i class="fa-solid fa-share-nodes"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+
+        <h3 class="section-title">Write a Review</h3>
+        <div class="review-section">
+            <form class="review-form" onsubmit="submitReview(event)">
+                <input type="text" id="reviewerName" placeholder="Your Name" required>
+                <input type="text" id="bookTitle" placeholder="Book Title" required>
+                <textarea id="reviewText" rows="4" placeholder="Share your thoughts..." required></textarea>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chetana Publications. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Web Share API for Mobile/Modern Desktop sharing
+        function shareBook(bookName) {
+            if (navigator.share) {
+                navigator.share({
+                    title: bookName + ' - Chetana Publications',
+                    text: 'Check out this amazing book from Chetana Publications!',
+                    url: window.location.href
+                }).catch((error) => console.log('Error sharing', error));
+            } else {
+                alert(`Share this link to recommend ${bookName}: ` + window.location.href);
+            }
+        }
+
+        // Mock Review Submission
+        function submitReview(event) {
+            event.preventDefault();
+            alert("Thank you! Your review has been submitted successfully.");
+            event.target.reset(); // Clears the form
+        }
+    </script>
+</body>
+</html>
