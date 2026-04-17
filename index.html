@@ -166,6 +166,55 @@
             transform: translateY(-2px);
         }
 
+        /* Copyright & Disclaimer Box */
+        .copyright-box {
+            background: rgba(16, 21, 34, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem 3rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: #cbd5e1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .copyright-box p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .copyright-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .copyright-box .highlight {
+            color: var(--neon-accent);
+            font-size: 1.2rem;
+        }
+
+        /* Review Section Box */
+        .review-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .review-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--neon-accent);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
         /* Professional Footer */
         footer {
             width: 100%;
@@ -194,6 +243,7 @@
             .book-info h1 { font-size: 2.8rem; }
             .actions { justify-content: center; }
             .book-cover { max-width: 280px; margin: 0 auto; }
+            .copyright-box, .review-section { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -217,11 +267,11 @@
                     </p>
 
                     <div class="actions">
-                        <a href="chetonar-code.pdf" target="_blank" class="btn btn-primary">
+                        <a href="Chetonar-code.pdf" target="_blank" class="btn btn-primary">
                             <i class="fa-solid fa-book-open"></i> Read Now
                         </a>
                         
-                        <a href="chetonar-code.pdf" download="Chetonar-Code-Abhik-Dutta.pdf" class="btn btn-outline">
+                        <a href="Chetonar-code.pdf" download="Chetonar-Code-Abhik-Dutta.pdf" class="btn btn-outline">
                             <i class="fa-solid fa-download"></i> Download PDF
                         </a>
 
@@ -231,6 +281,38 @@
                     </div>
                 </div>
             </div>
+
+            <div class="copyright-box bn-font">
+                <p class="highlight">© ২০২৬, অভিক দত্ত</p>
+                <p>জ্ঞান কখনো একার সম্পত্তি নয়, তবুও এই গ্রন্থের রূপ ও বিন্যাস লেখকের নিজস্ব সৃষ্টির অংশ। তাই লেখকের অনুমতি ছাড়া এই বইয়ের কোনো অংশ পুনরুৎপাদন বা প্রচার করা অনুচিত।</p>
+                <p>এই বই কোনো চূড়ান্ত উত্তর দেওয়ার দাবি করে মাতৃ—বরং কিছু প্রশ্নের দরজা খুলে দেয়। সত্যের অনুসন্ধান সর্বদা ব্যক্তিগত, আর এই বই সেই পথের একটি ক্ষুদ্র সহযাত্রী মাত্র।</p>
+                <p>প্রথম প্রকাশ: ২০২৬ &nbsp;|&nbsp; লেখক: <span style="color: var(--neon-accent);">অভিক দত্ত</span></p>
+            </div>
+
+            <div class="review-section">
+                <h2 class="review-title bn-font">পাঠকের মতামত</h2>
+                
+                <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://chetonapublications.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+
         </div>
     </div>
 
