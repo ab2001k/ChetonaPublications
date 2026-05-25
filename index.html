@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chetona Publications | Home</title>
+    <title>Chetona Publications | Where Bengali Thought Meets Global Knowledge</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%2300f3ff%22/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tiro+Bangla&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
@@ -13,6 +13,7 @@
             --neon-accent: #00f3ff;
             --glass-bg: rgba(16, 21, 34, 0.75);
             --glass-border: rgba(255, 255, 255, 0.15);
+            --base-bg: #030a1c; /* Richer, darker background */
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -21,33 +22,95 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(rgba(0, 0, 30, 0.8), rgba(0, 0, 0, 0.95)), url('bg-image.jpg') center/cover no-repeat fixed;
+            background-color: var(--base-bg);
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* Procedural Moving Starfield Background */
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            z-index: -1;
+        }
+
+        @keyframes starsDrift {
+            from { transform: translateY(0); }
+            to { transform: translateY(-2000px); }
+        }
+
+        @keyframes starsRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        body::before {
+            box-shadow: 
+                50px 100px #fff, 150px 300px #fff, 250px 500px #fff, 350px 700px #fff, 450px 900px #fff,
+                550px 1100px #fff, 650px 1300px #fff, 750px 1500px #fff, 850px 1700px #fff, 950px 1900px #fff,
+                1050px 2100px #fff, 1150px 2300px #fff, 1250px 2500px #fff, 1350px 2700px #fff, 1450px 2900px #fff;
+            animation: starsDrift 100s linear infinite;
+            opacity: 0.2;
+        }
+
+        body::after {
+            box-shadow:
+                100px 100px #00f3ff, 200px 300px #00f3ff, 300px 500px #00f3ff, 400px 700px #00f3ff, 500px 900px #00f3ff,
+                600px 1100px #00f3ff, 700px 1300px #00f3ff, 800px 1500px #00f3ff, 900px 1700px #00f3ff, 1000px 1900px #00f3ff,
+                1100px 2100px #00f3ff, 1200px 2300px #00f3ff, 1300px 2500px #00f3ff, 1400px 2700px #00f3ff, 1500px 2900px #00f3ff;
+            animation: starsDrift 200s linear infinite, starsRotate 300s linear infinite;
+            opacity: 0.15;
+            transform-origin: center center;
+        }
+
         .bn-font { font-family: 'Tiro Bangla', serif; letter-spacing: 0.5px; }
         .main-content { padding: 3rem 2rem; flex: 1; display: flex; flex-direction: column; align-items: center; }
         .container { width: 100%; max-width: 1200px; }
         
+        /* New Header with Logo */
+        .header {
+            text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center;
+        }
+        .logo-wrapper {
+            width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--glass-border); 
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem; background: rgba(0,0,0,0.3); box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .logo-wrapper img { width: 90%; height: auto; border-radius: 50%; }
+
         .branding {
-            text-align: center; margin-bottom: 3rem; font-family: 'Cinzel', serif;
-            font-size: 3rem; font-weight: 700; color: #ffffff; letter-spacing: 4px;
+            font-family: 'Cinzel', serif; font-size: 3.5rem; font-weight: 700; color: #ffffff; letter-spacing: 5px;
             text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+        .tagline {
+            font-size: 1.1rem; font-weight: 300; color: #cbd5e1; margin-top: 0.5rem; margin-bottom: 2rem;
+        }
+        .mission {
+            max-width: 800px; font-size: 1.05rem; line-height: 1.8; color: #cbd5e1;
+            border-left: 3px solid var(--neon-accent); padding-left: 1.5rem; text-align: left;
         }
 
         /* Catalog Grid */
+        .catalog-title {
+            text-align: center; font-size: 2rem; color: var(--neon-accent); margin-bottom: 2.5rem;
+            font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+        }
         .book-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .book-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: left;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
             text-decoration: none;
             color: inherit;
             display: flex;
@@ -63,44 +126,87 @@
         .book-card img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
-        .book-card h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
-        .book-card p { color: var(--neon-accent); font-size: 1rem; margin-bottom: 1rem; }
-        .book-card .price { font-weight: 600; color: #fff; margin-top: auto; font-size: 1.2rem; }
+        .book-card h2 { font-size: 1.7rem; margin-bottom: 0.5rem; color: #fff; }
+        .book-card p.author { color: var(--neon-accent); font-size: 1.05rem; margin-bottom: 1.5rem; font-weight: 300;}
+        
+        .book-metadata { margin-bottom: 1.5rem; font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; flex: 1; }
+        .book-metadata .genres { display: flex; gap: 0.8rem; margin-bottom: 1rem; }
+        .book-metadata .genre-tag {
+            background: rgba(0, 243, 255, 0.1); color: var(--neon-accent); padding: 4px 10px; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;
+        }
+        .book-metadata .brief-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
 
-        footer { text-align: center; padding: 1.5rem; background: rgba(0, 0, 0, 0.5); border-top: 1px solid var(--glass-border); color: #94a3b8; font-size: 0.9rem; }
+        .book-card .price-row {
+            display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 1.5rem; margin-top: auto;
+        }
+        .book-card .price { font-weight: 600; color: #fff; font-size: 1.3rem; }
+        .book-card .download-btn {
+            background: transparent; color: var(--neon-accent); border: 1px solid var(--neon-accent); padding: 8px 18px; border-radius: 8px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease;
+        }
+        .book-card:hover .download-btn { background: var(--neon-accent); color: #030a1c; box-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+
+        footer { text-align: center; padding: 2rem 1.5rem; background: rgba(0, 0, 0, 0.7); border-top: 1px solid var(--glass-border); color: #94a3b8; font-size: 0.95rem; margin-top: 5rem;}
         footer span { color: var(--neon-accent); }
     </style>
 </head>
 <body>
     <div class="main-content">
         <div class="container">
-            <div class="branding">Chetona Publications</div>
+            <div class="header">
+                <div class="logo-wrapper">
+                    <img src="Cp.png" alt="Chetona Publications Logo Placeholder">
+                </div>
+                <div class="branding">Chetona Publications</div>
+                <div class="tagline">Where Bengali Thought Meets Global Knowledge</div>
+                <div class="mission bn-font"> চেতনা পাবলিকেশনস একটি পেশাদার জ্ঞানভিত্তিক প্রতিষ্ঠান, যা বাংলা সাহিত্যে গবেষণামূলক, শিক্ষামূলক এবং নন-ফিকশন গ্রন্থ প্রচারে নিবেদিত। আমরা উন্নত মানের প্রকাশনার মাধ্যমে বাংলা জ্ঞান চর্চাকে বিশ্ব দরবারে পৌঁছে দিতে প্রতিজ্ঞাবদ্ধ। </div>
+            </div>
             
+            <div class="catalog-title">Publications Catalog</div>
             <div class="book-grid">
                 <a href="book-chetonar-code.html" class="book-card">
                     <img src="book-cover.png" alt="চেতনার কোড">
                     <h2 class="bn-font">চেতনার কোড</h2>
-                    <p class="bn-font">অভিক দত্ত</p>
-                    <div class="price">৳150 / Download</div>
+                    <p class="author bn-font">অভিক দত্ত</p>
+                    <div class="book-metadata">
+                        <div class="genres">
+                            <span class="genre-tag">Non-Fiction</span>
+                            <span class="genre-tag">Academic</span>
+                        </div>
+                        <p class="brief-summary bn-font"> একটি অসাধারণ যাত্রা যা মানুষের মন এবং ভবিষ্যতের অসীম সীমানাকে স্পর্শ করে। চেতনার গভীরে লুকিয়ে থাকা কোড ডিকোড করতে আজই পড়ুন। </p>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">৳150</div>
+                        <button class="download-btn">Read Details</button>
+                    </div>
                 </a>
 
                 <a href="#" class="book-card">
-                    <img src="book-cover-2.png" alt="বইয়ের নাম">
+                    <img src="book-cover-2.png" alt="অজানা নক্ষত্র">
                     <h2 class="bn-font">অজানা নক্ষত্র</h2>
-                    <p class="bn-font">অভিক দত্ত</p>
-                    <div class="price">৳120 / Download</div>
+                    <p class="author bn-font">অভিক দত্ত</p>
+                    <div class="book-metadata">
+                        <div class="genres">
+                            <span class="genre-tag">Scientific</span>
+                            <span class="genre-tag">Astro-Physics</span>
+                        </div>
+                        <p class="brief-summary bn-font"> মহাবিশ্বের রহস্যময় নক্ষত্র জগৎ এবং তাদের অজানা ইতিহাস নিয়ে একটি রোমাঞ্চকর আলোচনা। মহাকাশ বিজ্ঞানে আগ্রহী পাঠকের জন্য একটি তথ্যসমৃদ্ধ গ্রন্থ। </p>
+                    </div>
+                    <div class="price-row">
+                        <div class="price">৳120</div>
+                        <button class="download-btn">Read Details</button>
+                    </div>
                 </a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Chetona Publications. All rights reserved. | Designed by <span>Abhik Dutta</span></p>
+        <p>&copy; 2026 Chetona Publications. All rights reserved. | Professional Knowledge Publications Designed by <span>Abhik Dutta</span></p>
     </footer>
 </body>
 </html>
