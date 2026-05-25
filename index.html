@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chetona Publications | Deep Knowledge</title>
+    
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%2300f3ff%22/></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tiro+Bangla&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts: Space Grotesk (Header), Cinzel (Headings), Tiro Bangla (Bengali), Poppins (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Space+Grotesk:wght@400;600;700&family=Tiro+Bangla&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     
     <style>
+        /* --- CSS Variables --- */
         :root {
             --neon-accent: #00f3ff;
             --neon-glow: rgba(0, 243, 255, 0.4);
-            --glass-bg: rgba(12, 16, 28, 0.6);
+            --glass-bg: rgba(12, 16, 28, 0.5);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --space-dark: #030613;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        /* --- Base Body & Background --- */
         body {
             font-family: 'Poppins', sans-serif;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-color: #030613; /* Deep space black */
-            /* Nebula gradients */
+            background-color: var(--space-dark);
             background-image: 
                 radial-gradient(circle at 15% 30%, rgba(28, 12, 65, 0.6) 0%, transparent 40%),
                 radial-gradient(circle at 85% 70%, rgba(12, 45, 75, 0.5) 0%, transparent 40%);
@@ -40,6 +48,7 @@
             top: 0; left: 0; width: 100%; height: 100%;
             display: block;
             z-index: -1;
+            pointer-events: none;
         }
 
         .stars {
@@ -58,199 +67,264 @@
         /* -------------------------------------- */
 
         .bn-font { font-family: 'Tiro Bangla', serif; letter-spacing: 0.5px; }
-        .main-content { padding: 4rem 2rem; flex: 1; display: flex; flex-direction: column; align-items: center; }
-        .container { width: 100%; max-width: 1200px; z-index: 1; position: relative; }
         
-        /* --- Redesigned Modern Header Hero --- */
-        .header-hero {
+        .main-content { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding-bottom: 5rem;
+        }
+        
+        .container { 
+            width: 100%; 
+            max-width: 1200px; 
+            z-index: 1; 
+            position: relative; 
+            padding: 0 2rem;
+        }
+        
+        /* --- Designer Top Header (New Style) --- */
+        .designer-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 4.5rem;
-            margin-bottom: 5rem;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 80px rgba(0, 243, 255, 0.03);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Subtle inner glow for the header */
-        .header-hero::after {
-            content: '';
-            position: absolute;
-            top: -50px; left: -50px;
-            width: 250px; height: 250px;
-            background: var(--neon-accent);
-            filter: blur(120px);
-            opacity: 0.15;
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .header-text {
-            flex: 1;
-            padding-right: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .branding {
-            font-family: 'Cinzel', serif;
-            font-size: 3.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 3px;
-            line-height: 1.1;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--neon-accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .mission {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #e2e8f0;
-            font-weight: 300;
-        }
-
-        .header-visual {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
             align-items: center;
+            width: 100%;
+            padding: 1.5rem 3rem;
+            background: rgba(3, 6, 19, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
         }
 
-        .logo-wrapper {
-            width: 160px;
-            height: 160px;
+        .brand-group {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .header-logo {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, var(--neon-accent), #8a2be2);
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-            animation: float 6s ease-in-out infinite;
+            padding: 2px;
+            background: linear-gradient(45deg, var(--neon-accent), #8a2be2);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
         }
 
-        .logo-wrapper img {
+        .header-logo img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            background: #030613; /* fallback inside */
-            border: 4px solid #030613;
+            background: var(--space-dark);
+            border: 2px solid var(--space-dark);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
-        /* --- Catalog Grid --- */
+        /* Hover Effects for Header */
+        .brand-group:hover .header-logo {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        }
+        .brand-group:hover .brand-name {
+            color: var(--neon-accent);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--neon-accent);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--neon-accent);
+        }
+
+        .nav-link:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- Catalog Area --- */
         .catalog-title {
-            text-align: center; font-size: 2rem; color: #fff; margin-bottom: 3rem;
-            font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 3.5rem;
+            font-family: 'Cinzel', serif; font-weight: 700; text-transform: uppercase; letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
         
-        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 3rem; }
+        .book-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 3rem; 
+        }
 
+        /* --- Modern Book Cards --- */
         .book-card {
-            background: var(--glass-bg); backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border); border-radius: 20px;
-            padding: 2rem; text-align: left;
+            background: var(--glass-bg); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border); 
+            border-radius: 20px;
+            padding: 2rem; 
+            text-align: left;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none; color: inherit; display: flex; flex-direction: column;
-            position: relative; overflow: hidden;
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column;
+            position: relative; 
+            overflow: hidden;
         }
 
         .book-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--neon-glow);
-            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 243, 255, 0.15);
+            border-color: rgba(0, 243, 255, 0.4);
         }
 
         .book-card img {
-            width: 100%; height: auto; border-radius: 12px; margin-bottom: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            width: 100%; 
+            height: auto; 
+            border-radius: 12px; 
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+        
+        .book-card:hover img {
+            transform: scale(1.03);
         }
 
-        .book-card h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff; }
+        .book-card h2 { font-size: 1.8rem; margin-bottom: 0.3rem; color: #fff; }
         .book-card p.author { color: var(--neon-accent); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 300;}
         
-        .book-metadata { margin-bottom: 1.5rem; font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; flex: 1; }
-        .book-metadata .genres { display: flex; gap: 0.8rem; margin-bottom: 1rem; }
+        .book-metadata { margin-bottom: 1.5rem; font-size: 0.95rem; color: #cbd5e1; line-height: 1.7; flex: 1; }
+        
+        .book-metadata .genres { display: flex; gap: 0.8rem; margin-bottom: 1.2rem; }
         .book-metadata .genre-tag {
-            background: rgba(0, 243, 255, 0.1); color: var(--neon-accent); padding: 5px 12px; border-radius: 20px; 
+            background: rgba(0, 243, 255, 0.05); color: var(--neon-accent); padding: 5px 12px; border-radius: 20px; 
             font-size: 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;
             border: 1px solid rgba(0, 243, 255, 0.2);
         }
-        .book-metadata .brief-summary { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
+        
+        .book-metadata .brief-summary { 
+            display: -webkit-box; 
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+            opacity: 0.9;
+        }
 
+        /* Action Row (Price & Button) */
         .book-card .price-row {
             display: flex; justify-content: space-between; align-items: center; 
             border-top: 1px solid var(--glass-border); padding-top: 1.5rem; margin-top: auto;
         }
         
-        /* Updated Price Styling */
-        .book-card .price { font-weight: 700; color: #fff; font-size: 1.4rem; letter-spacing: 1px; }
+        .book-card .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff; font-size: 1.4rem; letter-spacing: 1px; }
         .book-card .price.free { color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); }
 
         .book-card .download-btn {
+            font-family: 'Poppins', sans-serif;
             background: transparent; color: var(--neon-accent); border: 2px solid var(--neon-accent); 
-            padding: 8px 20px; border-radius: 8px; font-weight: 600; text-transform: uppercase; 
+            padding: 8px 22px; border-radius: 8px; font-weight: 600; text-transform: uppercase; 
             font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; cursor: pointer;
         }
-        .book-card:hover .download-btn { background: var(--neon-accent); color: #030613; box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
+        
+        .book-card:hover .download-btn { 
+            background: var(--neon-accent); 
+            color: var(--space-dark); 
+            box-shadow: 0 0 15px var(--neon-glow); 
+        }
 
-        footer { text-align: center; padding: 2rem 1.5rem; background: rgba(3, 6, 19, 0.9); border-top: 1px solid var(--glass-border); color: #94a3b8; font-size: 0.95rem; margin-top: auto;}
-        footer span { color: var(--neon-accent); }
+        /* --- Footer --- */
+        footer { 
+            text-align: center; 
+            padding: 2rem 1.5rem; 
+            background: rgba(3, 6, 19, 0.8); 
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border); 
+            color: #94a3b8; 
+            font-size: 0.95rem; 
+            margin-top: auto;
+            width: 100%;
+        }
+        footer span { color: var(--neon-accent); font-weight: 600; }
 
-        /* Mobile Adjustments */
-        @media (max-width: 900px) {
-            .header-hero { flex-direction: column-reverse; text-align: center; padding: 3rem 2rem; border-radius: 20px;}
-            .header-text { padding-right: 0; }
-            .header-visual { margin-bottom: 2.5rem; }
-            .branding { font-size: 2.8rem; }
-            .logo-wrapper { width: 130px; height: 130px; }
+        /* --- Mobile Adjustments --- */
+        @media (max-width: 850px) {
+            .designer-header {
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                margin-bottom: 3rem;
+            }
+            .brand-name { font-size: 1.5rem; }
+            .header-nav { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+            .catalog-title { font-size: 1.8rem; }
+            .container { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
     
-    <!-- Background Layers -->
+    <!-- Background Moving Layers -->
     <div class="stars"></div>
     <div class="twinkling"></div>
 
+    <!-- Main Header -->
+    <header class="designer-header">
+        <a href="index.html" class="brand-group">
+            <div class="header-logo">
+                <img src="Cp.png" alt="Chetona Logo">
+            </div>
+            <div class="brand-name">Chetona</div>
+        </a>
+        
+        <nav class="header-nav">
+            <a href="#" class="nav-link">Library</a>
+            <a href="#" class="nav-link">Authors</a>
+            <a href="#" class="nav-link">About</a>
+        </nav>
+    </header>
+
     <div class="main-content">
         <div class="container">
-            
-            <div class="header-hero">
-                <div class="header-text">
-                    <div class="branding">Chetona</div>
-                    <div class="tagline">Publications</div>
-                    <div class="mission bn-font">
-                        চিন্তার সীমানা ছাড়িয়ে—বিজ্ঞান, দর্শন ও গবেষণার এক নতুন অধ্যায়। 
-                    </div>
-                </div>
-                <div class="header-visual">
-                    <div class="logo-wrapper">
-                        <img src="Cp.png" alt="Chetona Logo">
-                    </div>
-                </div>
-            </div>
             
             <div class="catalog-title">Interstellar Library</div>
             
@@ -260,6 +334,7 @@
                     <img src="book-cover.png" alt="চেতনার কোড">
                     <h2 class="bn-font">চেতনার কোড</h2>
                     <p class="author bn-font">অভিক দত্ত</p>
+                    
                     <div class="book-metadata">
                         <div class="genres">
                             <span class="genre-tag">Sci-Fi</span>
@@ -269,17 +344,19 @@
                             একটি অসাধারণ যাত্রা যা মানুষের মন এবং ভবিষ্যতের অসীম সীমানাকে স্পর্শ করে। চেতনার গভীরে লুকিয়ে থাকা কোড ডিকোড করতে আজই পড়ুন। 
                         </p>
                     </div>
+                    
                     <div class="price-row">
                         <div class="price free">FREE</div>
                         <button class="download-btn">Read</button>
                     </div>
                 </a>
 
-                <!-- Book 2: Other Book (PAID IN RUPEES) -->
+                <!-- Book 2: Paid Book Example -->
                 <a href="#" class="book-card">
                     <img src="book-cover-2.png" alt="অজানা নক্ষত্র">
                     <h2 class="bn-font">অজানা নক্ষত্র</h2>
                     <p class="author bn-font">অভিক দত্ত</p>
+                    
                     <div class="book-metadata">
                         <div class="genres">
                             <span class="genre-tag">Astro-Physics</span>
@@ -289,17 +366,21 @@
                             মহাবিশ্বের রহস্যময় নক্ষত্র জগৎ এবং তাদের অজানা ইতিহাস নিয়ে একটি রোমাঞ্চকর আলোচনা। মহাকাশ বিজ্ঞানে আগ্রহী পাঠকের জন্য।
                         </p>
                     </div>
+                    
                     <div class="price-row">
                         <div class="price">₹120</div>
                         <button class="download-btn">Details</button>
                     </div>
                 </a>
             </div>
+            
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Chetona Publications. All rights reserved. | Exploring Horizons Designed by <span>Abhik Dutta</span></p>
     </footer>
+
 </body>
 </html>
