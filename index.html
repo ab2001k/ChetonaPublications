@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>চেতনার কোড | Chetona Publications</title>
-    
+    <title>Chetona Publications | Home</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%2300f3ff%22/></svg>">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Tiro+Bangla&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     
     <style>
@@ -18,321 +14,93 @@
             --glass-bg: rgba(16, 21, 34, 0.75);
             --glass-border: rgba(255, 255, 255, 0.15);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
             background: linear-gradient(rgba(0, 0, 30, 0.8), rgba(0, 0, 0, 0.95)), url('bg-image.jpg') center/cover no-repeat fixed;
         }
-
-        /* Fancy Bengali Font */
-        .bn-font { 
-            font-family: 'Tiro Bangla', serif; 
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Wrapper to push footer down */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 2rem;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1050px;
-        }
-
-        /* Stylish English Branding */
+        .bn-font { font-family: 'Tiro Bangla', serif; letter-spacing: 0.5px; }
+        .main-content { padding: 3rem 2rem; flex: 1; display: flex; flex-direction: column; align-items: center; }
+        .container { width: 100%; max-width: 1200px; }
+        
         .branding {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 4px;
+            text-align: center; margin-bottom: 3rem; font-family: 'Cinzel', serif;
+            font-size: 3rem; font-weight: 700; color: #ffffff; letter-spacing: 4px;
             text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
         }
 
-        /* Glassmorphism Card */
-        .book-showcase {
+        /* Catalog Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .book-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 3.5rem;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            align-items: center;
-        }
-
-        /* Book Cover Image */
-        .book-cover {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        
-        .book-cover:hover {
-            transform: scale(1.02) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.3);
-        }
-
-        /* Book Details */
-        .book-info h1 {
-            font-size: 3.8rem;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .book-info h3 {
-            font-size: 1.6rem;
-            color: var(--neon-accent);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .book-description {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #cbd5e1;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Button Group */
-        .actions {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.9rem 1.8rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background: var(--neon-accent);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #ffffff;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #ffffff;
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--neon-accent);
-            transform: translateY(-2px);
-        }
-
-        /* Copyright & Disclaimer Box */
-        .copyright-box {
-            background: rgba(16, 21, 34, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            padding: 2rem 3rem;
-            margin-top: 3rem;
-            text-align: center;
-            color: #cbd5e1;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .copyright-box p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .copyright-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .copyright-box .highlight {
-            color: var(--neon-accent);
-            font-size: 1.2rem;
-        }
-
-        /* Review Section Box */
-        .review-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-top: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .review-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--neon-accent);
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
-        }
-
-        /* Professional Footer */
-        footer {
-            width: 100%;
-            text-align: center;
             padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-top: 1px solid var(--glass-border);
-            color: #94a3b8;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
         }
 
-        footer span {
-            color: var(--neon-accent);
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 243, 255, 0.2);
+            border-color: var(--neon-accent);
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 850px) {
-            .branding { font-size: 2rem; }
-            .book-showcase {
-                grid-template-columns: 1fr;
-                padding: 2.5rem;
-                text-align: center;
-                gap: 2rem;
-            }
-            .book-info h1 { font-size: 2.8rem; }
-            .actions { justify-content: center; }
-            .book-cover { max-width: 280px; margin: 0 auto; }
-            .copyright-box, .review-section { padding: 1.5rem; }
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
+
+        .book-card h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .book-card p { color: var(--neon-accent); font-size: 1rem; margin-bottom: 1rem; }
+        .book-card .price { font-weight: 600; color: #fff; margin-top: auto; font-size: 1.2rem; }
+
+        footer { text-align: center; padding: 1.5rem; background: rgba(0, 0, 0, 0.5); border-top: 1px solid var(--glass-border); color: #94a3b8; font-size: 0.9rem; }
+        footer span { color: var(--neon-accent); }
     </style>
 </head>
 <body>
-
     <div class="main-content">
         <div class="container">
             <div class="branding">Chetona Publications</div>
             
-            <div class="book-showcase">
-                <div class="cover-wrapper">
-                    <img src="book-cover.png" alt="চেতনার কোড Book Cover" class="book-cover">
-                </div>
+            <div class="book-grid">
+                <a href="book-chetonar-code.html" class="book-card">
+                    <img src="book-cover.png" alt="চেতনার কোড">
+                    <h2 class="bn-font">চেতনার কোড</h2>
+                    <p class="bn-font">অভিক দত্ত</p>
+                    <div class="price">৳150 / Download</div>
+                </a>
 
-                <div class="book-info">
-                    <h1 class="bn-font">চেতনার কোড</h1>
-                    <h3 class="bn-font">লেখক: Abhik Dutta</h3>
-                    
-                    <p class="book-description bn-font">
-                        একটি অসাধারণ যাত্রা যা মানুষের মন এবং ভবিষ্যতের অসীম সীমানাকে স্পর্শ করে। চেতনার গভীরে লুকিয়ে থাকা কোড ডিকোড করতে আজই পড়ুন।
-                    </p>
-
-                    <div class="actions">
-                        <a href="Chetonar-code.pdf" target="_blank" class="btn btn-primary">
-                            <i class="fa-solid fa-book-open"></i> Read Now
-                        </a>
-                        
-                        <a href="Chetonar-code.pdf" download="Chetonar-Code-Abhik-Dutta.pdf" class="btn btn-outline">
-                            <i class="fa-solid fa-download"></i> Download PDF
-                        </a>
-
-                        <button class="btn btn-outline" onclick="sharePage()">
-                            <i class="fa-solid fa-share-nodes"></i> Share
-                        </button>
-                    </div>
-                </div>
+                <a href="#" class="book-card">
+                    <img src="book-cover-2.png" alt="বইয়ের নাম">
+                    <h2 class="bn-font">অজানা নক্ষত্র</h2>
+                    <p class="bn-font">অভিক দত্ত</p>
+                    <div class="price">৳120 / Download</div>
+                </a>
             </div>
-
-            <div class="copyright-box bn-font">
-                <p class="highlight">© ২০২৬, অভিক দত্ত</p>
-                <p>জ্ঞান কখনো একার সম্পত্তি নয়, তবুও এই গ্রন্থের রূপ ও বিন্যাস লেখকের নিজস্ব সৃষ্টির অংশ। তাই লেখকের অনুমতি ছাড়া এই বইয়ের কোনো অংশ পুনরুৎপাদন বা প্রচার করা অনুচিত।</p>
-                <p>এই বই কোনো চূড়ান্ত উত্তর দেওয়ার দাবি করে না—বরং কিছু প্রশ্নের দরজা খুলে দেয়। সত্যের অনুসন্ধান সর্বদা ব্যক্তিগত, আর এই বই সেই পথের একটি ক্ষুদ্র সহযাত্রী মাত্র।</p>
-                <p>প্রথম প্রকাশ: ২০২৬ &nbsp;|&nbsp; লেখক: <span style="color: var(--neon-accent);">অভিক দত্ত</span></p>
-            </div>
-
-            <div class="review-section">
-                <h2 class="review-title bn-font">পাঠকের মতামত</h2>
-                
-                <div id="disqus_thread"></div>
-                <script>
-                    /**
-                    * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                    * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                    /*
-                    var disqus_config = function () {
-                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    */
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://chetonapublications.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            </div>
-
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Chetona Publications. All rights reserved. | Designed by <span>Abhik Dutta</span></p>
     </footer>
-
-    <script>
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'চেতনার কোড by Abhik Dutta',
-                    text: 'Download and read "চেতনার কোড" from Chetona Publications!',
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert("Link copied to clipboard!");
-            }
-        }
-    </script>
 </body>
 </html>
