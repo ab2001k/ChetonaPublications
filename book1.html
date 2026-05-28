@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assam DELED PET Exam Guide | ChetonaPublications</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="Cp.png">
 
     <style>
@@ -138,7 +137,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav>
         <div class="container nav-content">
             <a href="index.html" class="logo">
@@ -155,19 +153,16 @@
         </div>
     </nav>
 
-    <!-- BOOK CONTENT -->
     <div class="container book-container">
         
-        <!-- SMART COVER BOX -->
         <div class="cover-box">
             <svg class="fallback-svg" viewBox="0 0 24 24">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
-            <img src="book1.jpg" alt="Assam DELED PET Guide" onerror="this.style.display='none'">
+            <img src="ChatGPT Image May 28, 2026, 11_32_26 AM.png" alt="Assam DELED PET Guide" onerror="this.style.display='none'">
         </div>
         
-        <!-- BOOK DETAILS -->
         <div class="book-details">
             <h1>Assam DELED PET Exam Guide (Bilingual)</h1>
             <p>Complete Preparation Guide based on the Latest Syllabus. Perfect for both Assamese and Bengali speaking aspirants.</p>
@@ -187,20 +182,17 @@
             </div>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <!-- BUY BUTTON (Triggers Modal) -->
                 <button id="manual-buy-btn" class="btn btn-primary">
                     Buy Now 
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </button>
                 
-                <!-- PREVIEW BUTTON -->
                 <a href="sample.pdf" download class="btn btn-outline">
                     Preview Sample
                     <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 </a>
             </div>
             
-            <!-- TRUST & SUPPORT -->
             <div class="trust-badges">
                 <div class="trust-item">
                     <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -223,19 +215,15 @@
         </div>
     </div>
 
-    <!-- ============================================== -->
-    <!-- MANUAL PAYMENT & VERIFICATION MODAL            -->
-    <!-- ============================================== -->
     <div class="modal-overlay" id="paymentModal">
         <div class="modal-box">
             <button class="modal-close" id="closeModal">✕</button>
 
-            <!-- STEP 1: SHOW QR CODE (Only visible on PC) -->
             <div id="step-qr">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Pay ₹49 via UPI</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Scan this QR code with any UPI app</p>
                 
-                <img src="Qr.jpeg" alt="QR Code" style="width: 220px; margin: 0 auto 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 10px;">
+                <img src="WhatsApp Image 2026-05-28 at 1.27.31 PM.jpeg" alt="QR Code" style="width: 220px; margin: 0 auto 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 10px;">
                 
                 <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; color: #1e293b;">UPI ID: abhikdutta639@okicici</p>
                 
@@ -244,12 +232,10 @@
                 </button>
             </div>
 
-            <!-- STEP 2: VERIFICATION FORM (Visible after mobile redirect, or PC click) -->
             <div id="step-verify" style="display: none;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Verify Payment</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Submit your details to receive the eBook.</p>
                 
-                <!-- NOTE: To make this form email you, you can change the action to a Formspree link later -->
                 <form id="verifyForm">
                     <div class="form-group">
                         <label>Name</label>
@@ -275,7 +261,6 @@
                 </form>
             </div>
 
-            <!-- STEP 3: SUCCESS SCREEN -->
             <div id="step-success" style="display: none; padding: 1rem 0;">
                 <svg viewBox="0 0 24 24" style="width: 80px; height: 80px; stroke: #10b981; fill: none; stroke-width: 2; margin: 0 auto 1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #10b981;">Verification under process</h2>
@@ -285,16 +270,12 @@
             </div>
         </div>
     </div>
-    <!-- ============================================== -->
-
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA.</p>
         </div>
     </footer>
 
-    <!-- LOGIC SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buyBtn = document.getElementById('manual-buy-btn');
