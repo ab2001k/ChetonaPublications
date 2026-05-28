@@ -129,13 +129,34 @@
 
         /* === FOOTER / CONTACT === */
         footer { border-top: 1px solid #e5e7eb; padding: 5rem 0 2rem; text-align: center; }
-        .contact-box { max-width: 600px; margin: 0 auto 3.5rem; padding: 2.5rem; border: 1px solid #e5e7eb; border-radius: 12px; background: #fafafa;}
+        
+        /* FIXED CONTACT BOX SIZING */
+        .contact-box { 
+            max-width: 600px; 
+            margin: 0 auto 3.5rem; 
+            padding: 2.5rem; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 12px; 
+            background: #fafafa;
+            width: 100%; 
+            box-sizing: border-box; /* Forces padding inside width */
+        }
+        
+        .contact-box a.btn {
+            box-sizing: border-box; /* Fixes email button overflow */
+        }
         
         /* === MOBILE RESPONSIVENESS === */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.8rem; }
             .cover-box { height: 280px; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.5rem; }
+            .contact-box { padding: 2rem 1rem; }
+            .contact-box .btn { width: 100%; font-size: 1rem; }
         }
     </style>
 </head>
@@ -185,7 +206,7 @@
                             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                         </svg>
-                        <img src="book1.jpg" alt="DELED PET Guide Cover" onerror="this.style.display='none'">
+                        <img src="ChatGPT Image May 28, 2026, 11_32_26 AM.png" alt="DELED PET Guide Cover" onerror="this.style.display='none'">
                     </div>
                     
                     <h3>Assam DELED PET Exam Guide</h3>
