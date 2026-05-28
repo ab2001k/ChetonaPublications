@@ -249,7 +249,7 @@
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Verify Payment</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Submit your details to receive the eBook.</p>
                 
-                <!-- If you build a backend/Google Sheet integration later, add action="YOUR_URL" here -->
+                <!-- NOTE: To make this form email you, you can change the action to a Formspree link later -->
                 <form id="verifyForm">
                     <div class="form-group">
                         <label>Name</label>
@@ -344,9 +344,7 @@
             // 3. USER SUBMITS THE FORM
             verifyForm.addEventListener('submit', (e) => {
                 e.preventDefault(); 
-                // Note: In a real environment, you will hook this to a Google Form action URL 
-                // or a backend API to actually save the data.
-
+                
                 // Show the success screen
                 stepVerify.style.display = 'none';
                 stepSuccess.style.display = 'block';
