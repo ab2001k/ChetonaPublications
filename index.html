@@ -3,384 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chetona Publications | Deep Knowledge</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%2300f3ff%22/></svg>">
-    
-    <!-- Google Fonts: Space Grotesk (Header), Cinzel (Headings), Tiro Bangla (Bengali), Poppins (Body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Space+Grotesk:wght@400;600;700&family=Tiro+Bangla&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    
-    <style>
-        /* --- CSS Variables --- */
-        :root {
-            --neon-accent: #00f3ff;
-            --neon-glow: rgba(0, 243, 255, 0.4);
-            --glass-bg: rgba(12, 16, 28, 0.5);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --space-dark: #030613;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* --- Base Body & Background --- */
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-color: var(--space-dark);
-            background-image: 
-                radial-gradient(circle at 15% 30%, rgba(28, 12, 65, 0.6) 0%, transparent 40%),
-                radial-gradient(circle at 85% 70%, rgba(12, 45, 75, 0.5) 0%, transparent 40%);
-            background-attachment: fixed;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* --- Interstellar Starfield Animation --- */
-        .stars, .twinkling {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: block;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .stars {
-            background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><circle cx="50" cy="50" r="1.5" fill="%23ffffff" opacity="0.8"/><circle cx="150" cy="200" r="1" fill="%2300f3ff" opacity="0.6"/><circle cx="300" cy="100" r="2" fill="%23ffffff" opacity="0.9"/><circle cx="250" cy="350" r="1" fill="%23ffffff" opacity="0.5"/><circle cx="80" cy="300" r="1.5" fill="%2300f3ff" opacity="0.7"/></svg>') repeat;
-            animation: drift 150s linear infinite;
-        }
-
-        .twinkling {
-            background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><circle cx="100" cy="100" r="1" fill="%23ffffff"/><circle cx="200" cy="250" r="2" fill="%2300f3ff"/><circle cx="50" cy="280" r="1.5" fill="%23ffffff"/></svg>') repeat;
-            animation: drift 100s linear infinite, pulse 4s ease-in-out infinite alternate;
-            opacity: 0.5;
-        }
-
-        @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-1000px); } }
-        @keyframes pulse { 0% { opacity: 0.2; transform: scale(0.9); } 100% { opacity: 0.8; transform: scale(1.1); } }
-        /* -------------------------------------- */
-
-        .bn-font { font-family: 'Tiro Bangla', serif; letter-spacing: 0.5px; }
-        
-        .main-content { 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding-bottom: 5rem;
-        }
-        
-        .container { 
-            width: 100%; 
-            max-width: 1200px; 
-            z-index: 1; 
-            position: relative; 
-            padding: 0 2rem;
-        }
-        
-        /* --- Designer Top Header (New Style) --- */
-        .designer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 1.5rem 3rem;
-            background: rgba(3, 6, 19, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-        }
-
-        .brand-group {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .header-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            padding: 2px;
-            background: linear-gradient(45deg, var(--neon-accent), #8a2be2);
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-        }
-
-        .header-logo img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--space-dark);
-            border: 2px solid var(--space-dark);
-        }
-
-        .brand-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-
-        /* Hover Effects for Header */
-        .brand-group:hover .header-logo {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
-        }
-        .brand-group:hover .brand-name {
-            color: var(--neon-accent);
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--neon-accent);
-            transition: width 0.3s ease;
-            box-shadow: 0 0 10px var(--neon-accent);
-        }
-
-        .nav-link:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); }
-        .nav-link:hover::after { width: 100%; }
-
-        /* --- Catalog Area --- */
-        .catalog-title {
-            text-align: center; font-size: 2.2rem; color: #fff; margin-bottom: 3.5rem;
-            font-family: 'Cinzel', serif; font-weight: 700; text-transform: uppercase; letter-spacing: 4px;
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
-        }
-        
-        .book-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 3rem; 
-        }
-
-        /* --- Modern Book Cards --- */
-        .book-card {
-            background: var(--glass-bg); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border); 
-            border-radius: 20px;
-            padding: 2rem; 
-            text-align: left;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none; 
-            color: inherit; 
-            display: flex; 
-            flex-direction: column;
-            position: relative; 
-            overflow: hidden;
-        }
-
-        .book-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 243, 255, 0.15);
-            border-color: rgba(0, 243, 255, 0.4);
-        }
-
-        .book-card img {
-            width: 100%; 
-            height: auto; 
-            border-radius: 12px; 
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            transition: transform 0.4s ease;
-        }
-        
-        .book-card:hover img {
-            transform: scale(1.03);
-        }
-
-        .book-card h2 { font-size: 1.8rem; margin-bottom: 0.3rem; color: #fff; }
-        .book-card p.author { color: var(--neon-accent); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 300;}
-        
-        .book-metadata { margin-bottom: 1.5rem; font-size: 0.95rem; color: #cbd5e1; line-height: 1.7; flex: 1; }
-        
-        .book-metadata .genres { display: flex; gap: 0.8rem; margin-bottom: 1.2rem; }
-        .book-metadata .genre-tag {
-            background: rgba(0, 243, 255, 0.05); color: var(--neon-accent); padding: 5px 12px; border-radius: 20px; 
-            font-size: 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-        }
-        
-        .book-metadata .brief-summary { 
-            display: -webkit-box; 
-            -webkit-line-clamp: 3; 
-            -webkit-box-orient: vertical; 
-            overflow: hidden;
-            opacity: 0.9;
-        }
-
-        /* Action Row (Price & Button) */
-        .book-card .price-row {
-            display: flex; justify-content: space-between; align-items: center; 
-            border-top: 1px solid var(--glass-border); padding-top: 1.5rem; margin-top: auto;
-        }
-        
-        .book-card .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #fff; font-size: 1.4rem; letter-spacing: 1px; }
-        .book-card .price.free { color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.4); }
-
-        .book-card .download-btn {
-            font-family: 'Poppins', sans-serif;
-            background: transparent; color: var(--neon-accent); border: 2px solid var(--neon-accent); 
-            padding: 8px 22px; border-radius: 8px; font-weight: 600; text-transform: uppercase; 
-            font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s ease; cursor: pointer;
-        }
-        
-        .book-card:hover .download-btn { 
-            background: var(--neon-accent); 
-            color: var(--space-dark); 
-            box-shadow: 0 0 15px var(--neon-glow); 
-        }
-
-        /* --- Footer --- */
-        footer { 
-            text-align: center; 
-            padding: 2rem 1.5rem; 
-            background: rgba(3, 6, 19, 0.8); 
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--glass-border); 
-            color: #94a3b8; 
-            font-size: 0.95rem; 
-            margin-top: auto;
-            width: 100%;
-        }
-        footer span { color: var(--neon-accent); font-weight: 600; }
-
-        /* --- Mobile Adjustments --- */
-        @media (max-width: 850px) {
-            .designer-header {
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1.5rem;
-                border-radius: 0 0 20px 20px;
-                margin-bottom: 3rem;
-            }
-            .brand-name { font-size: 1.5rem; }
-            .header-nav { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-            .catalog-title { font-size: 1.8rem; }
-            .container { padding: 0 1rem; }
-        }
-    </style>
+    <title>My Modern Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <!-- Background Moving Layers -->
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-
-    <!-- Main Header -->
-    <header class="designer-header">
-        <a href="index.html" class="brand-group">
-            <div class="header-logo">
-                <img src="Cp.png" alt="Chetona Logo">
-            </div>
-            <div class="brand-name">Chetona</div>
-        </a>
-        
-        <nav class="header-nav">
-            <a href="#" class="nav-link">Library</a>
-            <a href="#" class="nav-link">Authors</a>
-            <a href="#" class="nav-link">About</a>
+    <header>
+        <div class="logo">MyBrand</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
+        <button id="theme-toggle" class="btn">Toggle Theme</button>
     </header>
 
-    <div class="main-content">
-        <div class="container">
-            
-            <div class="catalog-title">Interstellar Library</div>
-            
-            <div class="book-grid">
-                <!-- Book 1: Chetonar Code (FREE) -->
-                <a href="book-chetonar-code.html" class="book-card">
-                    <img src="book-cover.png" alt="চেতনার কোড">
-                    <h2 class="bn-font">চেতনার কোড</h2>
-                    <p class="author bn-font">অভিক দত্ত</p>
-                    
-                    <div class="book-metadata">
-                        <div class="genres">
-                            <span class="genre-tag">Sci-Fi</span>
-                            <span class="genre-tag">Philosophy</span>
-                        </div>
-                        <p class="brief-summary bn-font">
-                            একটি অসাধারণ যাত্রা যা মানুষের মন এবং ভবিষ্যতের অসীম সীমানাকে স্পর্শ করে। চেতনার গভীরে লুকিয়ে থাকা কোড ডিকোড করতে আজই পড়ুন। 
-                        </p>
-                    </div>
-                    
-                    <div class="price-row">
-                        <div class="price free">FREE</div>
-                        <button class="download-btn">Read</button>
-                    </div>
-                </a>
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to the Future</h1>
+            <p>This is a clean, modern, and fully responsive website template.</p>
+            <a href="#about" class="btn primary-btn">Learn More</a>
+        </section>
 
-                <!-- Book 2: Paid Book Example -->
-                <a href="#" class="book-card">
-                    <img src="book-cover-2.png" alt="অজানা নক্ষত্র">
-                    <h2 class="bn-font">অজানা নক্ষত্র</h2>
-                    <p class="author bn-font">অভিক দত্ত</p>
-                    
-                    <div class="book-metadata">
-                        <div class="genres">
-                            <span class="genre-tag">Astro-Physics</span>
-                            <span class="genre-tag">Research</span>
-                        </div>
-                        <p class="brief-summary bn-font">
-                            মহাবিশ্বের রহস্যময় নক্ষত্র জগৎ এবং তাদের অজানা ইতিহাস নিয়ে একটি রোমাঞ্চকর আলোচনা। মহাকাশ বিজ্ঞানে আগ্রহী পাঠকের জন্য।
-                        </p>
-                    </div>
-                    
-                    <div class="price-row">
-                        <div class="price">₹120</div>
-                        <button class="download-btn">Details</button>
-                    </div>
-                </a>
+        <section id="about" class="content-section">
+            <h2>About This Site</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>HTML5</h3>
+                    <p>Semantic structure for better SEO and accessibility.</p>
+                </div>
+                <div class="card">
+                    <h3>CSS3</h3>
+                    <p>Beautiful styling with flexbox, CSS variables, and modern aesthetics.</p>
+                </div>
+                <div class="card">
+                    <h3>JavaScript</h3>
+                    <p>Interactive elements like the dark/light mode toggle above.</p>
+                </div>
             </div>
-            
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Chetona Publications. All rights reserved. | Exploring Horizons Designed by <span>Abhik Dutta</span></p>
+    <footer id="contact">
+        <p>&copy; 2026 MyBrand. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
