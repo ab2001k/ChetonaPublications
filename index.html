@@ -3,50 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Modern Website</title>
+    <title>ChetonaPublications | Premium Digital Learning for Assam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">MyBrand</div>
-        <nav>
-            <ul>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="Cp.png" alt="Logo" onerror="this.style.display='none'">
+                Chetona<span>Publications</span>
+            </a>
+            <div class="hamburger">☰</div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#books">Books</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-        <button id="theme-toggle" class="btn">Toggle Theme</button>
-    </header>
+        </div>
+    </nav>
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Welcome to the Future</h1>
-            <p>This is a clean, modern, and fully responsive website template.</p>
-            <a href="#about" class="btn primary-btn">Learn More</a>
-        </section>
-
-        <section id="about" class="content-section">
-            <h2>About This Site</h2>
-            <div class="card-container">
-                <div class="card">
-                    <h3>HTML5</h3>
-                    <p>Semantic structure for better SEO and accessibility.</p>
-                </div>
-                <div class="card">
-                    <h3>CSS3</h3>
-                    <p>Beautiful styling with flexbox, CSS variables, and modern aesthetics.</p>
-                </div>
-                <div class="card">
-                    <h3>JavaScript</h3>
-                    <p>Interactive elements like the dark/light mode toggle above.</p>
-                </div>
+    <section id="home" class="hero">
+        <div id="particles-js" class="particles"></div>
+        <div class="container hero-content reveal">
+            <h1>Empowering Assam Through <br><span style="color: var(--clr-cyan)">Digital Learning</span></h1>
+            <p>Premium Educational Books, PDFs & Smart Learning Resources designed for Assam & Bengali students preparing for competitive exams and academics.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#books" class="btn btn-primary">Explore Books</a>
+                <a href="#videos" class="btn btn-outline">Start Learning</a>
             </div>
-        </section>
-    </main>
+            <p class="founder-text">Built and Directed by ABHIK DUTTA</p>
+        </div>
+    </section>
+
+    <section id="books" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Featured Resources</h2>
+            <div class="book-grid">
+                
+                <article class="book-card glass reveal">
+                    <span class="badge">Bestseller</span>
+                    <div class="book-cover">Assam Direct Recruitment PDF</div>
+                    <h3>Complete ADRE Guide 2026</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Comprehensive notes in Assamese & Bengali.</p>
+                    <div class="price">₹199</div>
+                    <div class="actions">
+                        <a href="book-template.html" class="btn btn-primary">Buy Now</a>
+                        <a href="book-template.html" class="btn btn-outline">Preview</a>
+                    </div>
+                </article>
+
+                <article class="book-card glass reveal" style="transition-delay: 0.1s;">
+                    <span class="badge" style="background: var(--clr-cyan);">Trending</span>
+                    <div class="book-cover">SSC MTS Mock Tests</div>
+                    <h3>SSC MTS 50+ Mock Tests</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Latest syllabus covered with solutions.</p>
+                    <div class="price">₹149</div>
+                    <div class="actions">
+                        <a href="book-template.html" class="btn btn-primary">Buy Now</a>
+                        <a href="book-template.html" class="btn btn-outline">Preview</a>
+                    </div>
+                </article>
+
+                <article class="book-card glass reveal" style="transition-delay: 0.2s;">
+                    <div class="book-cover">SCERT D.El.Ed Notes</div>
+                    <h3>Assam SCERT D.El.Ed Prep</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Pedagogy and general knowledge basics.</p>
+                    <div class="price">₹129</div>
+                    <div class="actions">
+                        <a href="book-template.html" class="btn btn-primary">Buy Now</a>
+                        <a href="book-template.html" class="btn btn-outline">Preview</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="section" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <h2 class="section-title reveal">Video Learning Support</h2>
+            <div class="video-grid">
+                
+                <div class="video-card glass reveal">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Assam History Crash Course</h3>
+                        <p style="color: var(--clr-text-muted); font-size: 0.85rem;">Chapter 1: Ahom Kingdom Overview</p>
+                    </div>
+                </div>
+
+                <div class="video-card glass reveal" style="transition-delay: 0.1s;">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Math Shortcuts for SSC</h3>
+                        <p style="color: var(--clr-text-muted); font-size: 0.85rem;">Percentage & Ratio Tricks</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <div class="glass reveal" style="padding: 4rem; text-align: center;">
+                <h2 class="section-title" style="margin-bottom: 1rem;">Why Choose Us?</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--clr-text-muted);">
+                    ChetonaPublications is dedicated to providing high-quality, affordable digital learning resources for students across Assam and Bengal. 
+                </p>
+                <p style="font-size: 1.2rem; font-weight: bold; color: var(--clr-gold);">
+                    Founded & Directed by ABHIK DUTTA
+                </p>
+            </div>
+        </div>
+    </section>
 
     <footer id="contact">
-        <p>&copy; 2026 MyBrand. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem;">Chetona<span>Publications</span></a>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem;">Empowering the next generation of Assamese and Bengali learners through smart digital education.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#books">Digital Store</a></li>
+                        <li><a href="#videos">Video Hub</a></li>
+                        <li><a href="#about">About Founder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal & Support</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
