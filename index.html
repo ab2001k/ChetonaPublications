@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChetonaPublications | Premium Digital Learning for Assam</title>
+    <title>ChetonaPublications</title>
     <link rel="icon" type="image/png" href="Cp.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Minimal Navbar -->
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -19,86 +20,73 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#books">Books</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Clean Hero Section -->
     <section id="home" class="hero">
-        <div id="particles-js" class="particles"></div>
-        <div class="container hero-content reveal">
-            <h1>Empowering Assam Through <br><span style="color: var(--clr-cyan)">Digital Learning</span></h1>
-            <p>Premium Educational Books, PDFs & Smart Learning Resources designed for Assam & Bengali students preparing for competitive exams and academics.</p>
+        <div class="container hero-content">
+            <h1>Empowering Assam Through <span>Digital Learning</span></h1>
+            <p>Premium Educational Books, PDFs & Smart Learning Resources designed for Assam & Bengali students preparing for competitive exams.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="#books" class="btn btn-primary">Explore Books</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
             </div>
             <p class="founder-text">Built and Directed by ABHIK DUTTA</p>
         </div>
     </section>
 
+    <!-- Book Store Section with Image Covers -->
     <section id="books" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Educational Resources</h2>
+            <h2 class="section-title">Featured <span>Resources</span></h2>
             <div class="book-grid">
                 
-                <article class="book-card glass reveal">
-                    <span class="badge badge-premium">Premium PDF</span>
-                    <div class="book-cover">Complete ADRE Guide 2026</div>
-                    <h3>Assam Direct Recruitment</h3>
-                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Complete notes in Assamese & Bengali.</p>
-                    <div class="price">₹199</div>
-                    <div class="actions">
-                        <a href="book-template.html" class="btn btn-primary">View & Buy PDF</a>
+                <!-- BOOK 1 -->
+                <article class="book-card">
+                    <!-- Image Container -->
+                    <div class="book-image-container">
+                        <!-- Replace 'book1.jpg' with your actual image file name -->
+                        <img src="book1.jpg" alt="ADRE Guide Cover" onerror="this.src='https://via.placeholder.com/300x400?text=No+Cover+Uploaded'">
                     </div>
+                    <h3>Complete ADRE Guide 2026</h3>
+                    <p>Complete notes in Assamese & Bengali for direct recruitment exams.</p>
+                    <div class="price">₹199 <span>₹399</span></div>
+                    <a href="book-template.html" class="btn btn-primary" style="width: 100%;">View & Buy Book</a>
                 </article>
 
-                <article class="book-card glass reveal" style="transition-delay: 0.1s;">
-                    <span class="badge badge-free">100% Free</span>
-                    <div class="book-cover">SSC MTS Previous Year Papers</div>
+                <!-- BOOK 2 -->
+                <article class="book-card">
+                    <div class="book-image-container">
+                        <img src="book2.jpg" alt="SSC MTS Cover" onerror="this.src='https://via.placeholder.com/300x400?text=No+Cover+Uploaded'">
+                    </div>
                     <h3>SSC MTS Solved Papers</h3>
-                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Past 5 years solved questions.</p>
-                    <div class="price free-text">Free</div>
-                    <div class="actions">
-                        <a href="path/to/your/free-book.pdf" download class="btn btn-outline" style="color: var(--clr-green); border-color: var(--clr-green);">Download Free PDF</a>
-                    </div>
+                    <p>Past 5 years solved questions with math shortcuts.</p>
+                    <div class="price">Free</div>
+                    <a href="path/to/free-book.pdf" download class="btn btn-outline" style="width: 100%;">Download PDF</a>
                 </article>
 
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="glass reveal" style="padding: 4rem; text-align: center;">
-                <h2 class="section-title" style="margin-bottom: 1rem;">Why Choose Us?</h2>
-                <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--clr-text-muted);">
-                    ChetonaPublications is dedicated to providing high-quality, affordable digital learning resources for students across Assam and Bengal. 
-                </p>
-                <p style="font-size: 1.2rem; font-weight: bold; color: var(--clr-gold);">
-                    Founded & Directed by ABHIK DUTTA
-                </p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer & Auto-fill Contact Box -->
     <footer id="contact">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo" style="margin-bottom: 1rem;">Chetona<span>Publications</span></a>
-                    <p style="color: var(--clr-text-muted); font-size: 0.9rem;">Empowering the next generation of Assamese and Bengali learners.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="refund.html">Refund Policy</a></li>
-                    </ul>
-                </div>
+            
+            <!-- Small Contact Box -->
+            <div class="contact-box">
+                <h3>Have questions about a book?</h3>
+                <p>Click below to send me a direct email. The request will auto-fill for you.</p>
+                <!-- This href triggers the email client with pre-filled subject and body -->
+                <a href="mailto:Abhikdutta639@gmail.com?subject=Book%20Inquiry%20-%20ChetonaPublications&body=Hello%20Abhik%20Dutta,%0D%0A%0D%0AI%20am%20reaching%20out%20regarding%20the%20educational%20books%20on%20ChetonaPublications.%0D%0A%0D%0AMy%20question%20is:%20" class="btn btn-primary">
+                    Email: Abhikdutta639@gmail.com
+                </a>
             </div>
-            <div class="copyright">
+
+            <div class="footer-bottom">
                 <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA.</p>
             </div>
         </div>
