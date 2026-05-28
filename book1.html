@@ -51,7 +51,7 @@
         .logo span { color: var(--accent); }
 
         /* === BOOK LAYOUT === */
-        .book-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; padding: 140px 0 6rem; align-items: start;}
+        .book-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; padding: 140px 0 2rem; align-items: start;}
         
         /* === SMART COVER BOX === */
         .cover-box { 
@@ -61,7 +61,9 @@
             overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .fallback-svg { width: 100px; height: 100px; stroke: #cbd5e1; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-        .cover-box img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+        
+        /* FIXED: object-fit changed to contain so the book cover is never cut off */
+        .cover-box img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; z-index: 2; padding: 1.5rem; }
 
         /* === BOOK DETAILS === */
         .book-details h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
@@ -69,7 +71,7 @@
         .book-details ul { margin: 1.5rem 0 2.5rem; padding-left: 1.5rem; font-size: 1.05rem; }
         .book-details li { margin-bottom: 0.8rem; color: #222; }
         
-        .price-box { margin-bottom: 2rem; }
+        .price-box { margin-bottom: 1.5rem; }
         .price { font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; display: inline-block; }
         .price-strike { font-size: 1.5rem; color: #94a3b8; text-decoration: line-through; margin-left: 10px; font-weight: 700; }
         
@@ -192,6 +194,10 @@
                     <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 </a>
             </div>
+
+            <div style="margin-top: 12px; margin-bottom: 20px;">
+                <a href="#" id="already-paid-btn" style="font-size: 0.95rem; font-weight: 700; color: var(--accent); text-decoration: underline;">Already paid? Click here to verify</a>
+            </div>
             
             <div class="trust-badges">
                 <div class="trust-item">
@@ -259,6 +265,10 @@
                         <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
                 </form>
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" style="font-size: 0.9rem; color: var(--accent); font-weight: 600; text-decoration: underline;">Form not working? Use Google Form</a>
+                </div>
             </div>
 
             <div id="step-success" style="display: none; padding: 1rem 0;">
@@ -279,6 +289,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buyBtn = document.getElementById('manual-buy-btn');
+            const alreadyPaidBtn = document.getElementById('already-paid-btn'); // ADDED
             const modal = document.getElementById('paymentModal');
             const closeModalBtn = document.getElementById('closeModal');
             
@@ -315,6 +326,18 @@
                     stepSuccess.style.display = 'none';
                 }
             });
+
+            // ADDED: FALLBACK ALREADY PAID BUTTON ON MAIN PAGE
+            if(alreadyPaidBtn) {
+                alreadyPaidBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    // Skip straight to the verification step
+                    stepQr.style.display = 'none';
+                    stepVerify.style.display = 'block';
+                    stepSuccess.style.display = 'none';
+                });
+            }
 
             // 2. PC USER CLICKS "I HAVE PAID"
             btnPaid.addEventListener('click', () => {
