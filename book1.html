@@ -106,15 +106,6 @@
             font-size: 1.2rem; font-weight: bold; color: #64748b; transition: 0.2s;
         }
         .modal-close:hover { background: #e2e8f0; color: #000; }
-        
-        /* Form Inputs */
-        .form-group { margin-bottom: 1.2rem; text-align: left; }
-        .form-group label { display: block; font-weight: 800; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .form-group input { 
-            width: 100%; padding: 0.8rem; border: 2px solid #e2e8f0; 
-            border-radius: 8px; font-size: 1rem; transition: 0.2s; outline: none;
-        }
-        .form-group input:focus { border-color: var(--accent); }
 
         /* === RESPONSIVENESS === */
         @media (max-width: 900px) { 
@@ -229,7 +220,7 @@
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Pay ₹49 via UPI</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Scan this QR code with any UPI app</p>
                 
-                <img src="Qr.jpeg" alt="QR Code" style="width: 220px; margin: 0 auto 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 10px;">
+                <img src="OR.jpeg" alt="QR Code" style="width: 220px; margin: 0 auto 1.5rem; border: 2px solid #e2e8f0; border-radius: 12px; padding: 10px;">
                 
                 <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; color: #1e293b;">UPI ID: abhikdutta639@okicici</p>
                 
@@ -240,43 +231,19 @@
 
             <div id="step-verify" style="display: none;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Verify Payment</h2>
-                <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Submit your details to receive the eBook.</p>
+                <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Choose a method to submit your payment screenshot and receive the eBook.</p>
                 
-                <form id="verifyForm">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" required placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" required placeholder="Where should we send the PDF?">
-                    </div>
-                    <div class="form-group">
-                        <label>UTR / Transaction ID</label>
-                        <input type="text" required placeholder="12-digit UTR number">
-                    </div>
-                    <div class="form-group">
-                        <label>Upload Screenshot</label>
-                        <input type="file" required accept="image/*" style="padding: 0.5rem; background: #f8fafc; font-size: 0.9rem;">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
-                        Submit Details
-                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
-                </form>
+                <a href="https://forms.gle/Yx3wKNDgKTNavsKr5" target="_blank" class="btn btn-primary" style="width: 100%; margin-bottom: 15px; background-color: #4285F4; border-color: #4285F4;">
+                    <svg viewBox="0 0 24 24" style="stroke: #fff;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Verify via Google Form
+                </a>
 
-                <div style="text-align: center; margin-top: 15px;">
-                    <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" style="font-size: 0.9rem; color: var(--accent); font-weight: 600; text-decoration: underline;">Form not working? Use Google Form</a>
-                </div>
-            </div>
+                <a href="https://wa.me/918822967314?text=Hello%20ChetonaPublications,%0A%0AI%20have%20paid%20%E2%82%B949%20for%20the%20*Assam%20DELED%20PET%20Exam%20Guide*.%0A%0AMy%20Details:%0AName:%20%5BEnter%20Name%5D%0AEmail:%20%5BEnter%20Email%5D%0A%0A*I%20am%20attaching%20my%20payment%20screenshot%20below.*" target="_blank" class="btn btn-primary" style="width: 100%; background-color: #25D366; border-color: #25D366;">
+                    <svg viewBox="0 0 24 24" style="stroke: #fff;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Verify via WhatsApp
+                </a>
 
-            <div id="step-success" style="display: none; padding: 1rem 0;">
-                <svg viewBox="0 0 24 24" style="width: 80px; height: 80px; stroke: #10b981; fill: none; stroke-width: 2; margin: 0 auto 1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #10b981;">Verification under process</h2>
-                <p style="color: #1e293b; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">Verification usually takes 2–10 minutes.</p>
-                <p style="color: #64748b; font-size: 0.95rem; font-weight: 500;">I will verify manually and send the eBook to your Email + WhatsApp shortly.</p>
-                <button class="btn btn-outline" id="btn-close-success" style="margin-top: 2rem; width: 100%;">Return to Book Page</button>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #64748b;">Note: Please attach your payment screenshot inside WhatsApp or the Google Form.</p>
             </div>
         </div>
     </div>
@@ -289,17 +256,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buyBtn = document.getElementById('manual-buy-btn');
-            const alreadyPaidBtn = document.getElementById('already-paid-btn'); // ADDED
+            const alreadyPaidBtn = document.getElementById('already-paid-btn');
             const modal = document.getElementById('paymentModal');
             const closeModalBtn = document.getElementById('closeModal');
             
             const stepQr = document.getElementById('step-qr');
             const stepVerify = document.getElementById('step-verify');
-            const stepSuccess = document.getElementById('step-success');
-            
             const btnPaid = document.getElementById('btn-i-have-paid');
-            const verifyForm = document.getElementById('verifyForm');
-            const btnCloseSuccess = document.getElementById('btn-close-success');
 
             // Detect if user is on a mobile device
             function isMobileDevice() {
@@ -311,53 +274,63 @@
                 e.preventDefault();
                 modal.classList.add('active');
 
+                // Clear any existing temporary messages
+                const oldTemp = document.getElementById('tempLoading');
+                if(oldTemp) oldTemp.remove();
+
                 if(isMobileDevice()) {
                     // It's a phone! Open the UPI app automatically
                     window.location.href = "upi://pay?pa=abhikdutta639@okicici&pn=ChetonaPublications&am=49&cu=INR&tn=DEL%20ED%20PET%20Ebook";
                     
-                    // Skip the QR Code step and go straight to Verification Form
+                    // Hide default steps
                     stepQr.style.display = 'none';
-                    stepVerify.style.display = 'block';
-                    stepSuccess.style.display = 'none';
+                    stepVerify.style.display = 'none';
+
+                    // Create a temporary Waiting Message
+                    const loadingMsg = document.createElement('div');
+                    loadingMsg.id = 'tempLoading';
+                    loadingMsg.innerHTML = '<h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Waiting for Payment...</h2><p style="color: #64748b; font-size: 0.95rem; font-weight: 600;">Please complete the payment in your UPI app.<br><br>Returning to verification in a few seconds...</p>';
+                    document.querySelector('.modal-box').appendChild(loadingMsg);
+
+                    // Wait 8 seconds, then switch automatically to Verify Step
+                    setTimeout(() => {
+                        const temp = document.getElementById('tempLoading');
+                        if(temp) temp.remove();
+                        stepVerify.style.display = 'block';
+                    }, 8000);
+
                 } else {
                     // It's a PC! Show the QR code
                     stepQr.style.display = 'block';
                     stepVerify.style.display = 'none';
-                    stepSuccess.style.display = 'none';
                 }
             });
 
-            // ADDED: FALLBACK ALREADY PAID BUTTON ON MAIN PAGE
+            // 2. FALLBACK ALREADY PAID BUTTON ON MAIN PAGE
             if(alreadyPaidBtn) {
                 alreadyPaidBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     modal.classList.add('active');
+                    
+                    // Clear any existing temporary messages
+                    const oldTemp = document.getElementById('tempLoading');
+                    if(oldTemp) oldTemp.remove();
+
                     // Skip straight to the verification step
                     stepQr.style.display = 'none';
                     stepVerify.style.display = 'block';
-                    stepSuccess.style.display = 'none';
                 });
             }
 
-            // 2. PC USER CLICKS "I HAVE PAID"
+            // 3. PC USER CLICKS "I HAVE PAID"
             btnPaid.addEventListener('click', () => {
                 stepQr.style.display = 'none';
                 stepVerify.style.display = 'block';
             });
 
-            // 3. USER SUBMITS THE FORM
-            verifyForm.addEventListener('submit', (e) => {
-                e.preventDefault(); 
-                
-                // Show the success screen
-                stepVerify.style.display = 'none';
-                stepSuccess.style.display = 'block';
-            });
-
             // 4. CLOSE MODAL TRIGGERS
             function closeModal() { modal.classList.remove('active'); }
             closeModalBtn.addEventListener('click', closeModal);
-            btnCloseSuccess.addEventListener('click', closeModal);
             
             // Close if clicking outside the modal box
             modal.addEventListener('click', (e) => {
