@@ -5,93 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChetonaPublications</title>
     <link rel="icon" type="image/png" href="Cp.png">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* === STRICT 3-COLOR SYSTEM === */
+        :root {
+            --bg: #ffffff;         /* 1. Pure White */
+            --text: #000000;       /* 2. Solid Black */
+            --accent: #2563eb;     /* 3. Blue */
+            --accent-hover: #1d4ed8; 
+        }
+
+        /* === RESET & LAYOUT === */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* === TYPOGRAPHY === */
+        h1, h2, h3 { font-weight: 800; }
+        .title { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+        .title span { color: var(--accent); }
+
+        /* === BUTTONS === */
+        .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; text-align: center; border: 2px solid var(--accent); }
+        .btn-primary { background-color: var(--accent); color: var(--bg); }
+        .btn-primary:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); }
+        .btn-outline { background-color: transparent; color: var(--accent); }
+        .btn-outline:hover { background-color: var(--accent); color: var(--bg); }
+
+        /* === NAVBAR === */
+        nav { position: fixed; width: 100%; top: 0; background: var(--bg); padding: 1.5rem 0; z-index: 100; transition: 0.3s; border-bottom: 1px solid transparent; }
+        nav.scrolled { padding: 1rem 0; border-bottom: 1px solid #ddd; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); }
+        .logo img { height: 35px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* === SECTIONS === */
+        section { padding: 6rem 0; }
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; text-align: center; border-bottom: 1px solid #ddd; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-inline: auto; }
+
+        /* === BOOKSTORE GRID === */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .book-card { border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; text-align: left; transition: 0.3s; display: flex; flex-direction: column;}
+        .book-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .cover-box { height: 320px; background: #f5f5f5; border-radius: 4px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .cover-box img { width: 100%; height: 100%; object-fit: cover; }
+        .price { font-size: 1.5rem; font-weight: bold; margin: 1rem 0; color: var(--accent); }
+
+        /* === FOOTER / CONTACT === */
+        footer { border-top: 1px solid #ddd; padding: 4rem 0 2rem; text-align: center; }
+        .contact-box { max-width: 600px; margin: 0 auto 3rem; padding: 2rem; border: 1px solid #ddd; border-radius: 8px; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Add mobile menu logic in JS if needed */
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Minimal Navbar -->
-    <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="Cp.png" alt="Logo" onerror="this.style.display='none'">
-                Chetona<span>Publications</span>
-            </a>
-            <div class="hamburger">☰</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#books">Books</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo"><img src="Cp.png" alt="" onerror="this.style.display='none'"> Chetona<span>Publications</span></a>
+            <div class="nav-links">
+                <a href="#books">Books</a>
+                <a href="about.html">About & Trust</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Clean Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
+    <section class="hero">
+        <div class="container">
             <h1>Empowering Assam Through <span>Digital Learning</span></h1>
-            <p>Premium Educational Books, PDFs & Smart Learning Resources designed for Assam & Bengali students preparing for competitive exams.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <p>Premium Educational Books, PDFs & Smart Learning Resources designed for students preparing for competitive exams.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
                 <a href="#books" class="btn btn-primary">Explore Books</a>
-                <a href="#contact" class="btn btn-outline">Contact Us</a>
+                <a href="about.html" class="btn btn-outline">Why Trust Us?</a>
             </div>
-            <p class="founder-text">Built and Directed by ABHIK DUTTA</p>
         </div>
     </section>
 
-    <!-- Book Store Section with Image Covers -->
-    <section id="books" class="section">
+    <section id="books">
         <div class="container">
-            <h2 class="section-title">Featured <span>Resources</span></h2>
-            <div class="book-grid">
+            <h2 class="title">Featured <span>Resources</span></h2>
+            <div class="grid">
                 
-                <!-- BOOK 1 -->
-                <article class="book-card">
-                    <!-- Image Container -->
-                    <div class="book-image-container">
-                        <!-- Replace 'book1.jpg' with your actual image file name -->
-                        <img src="book1.jpg" alt="ADRE Guide Cover" onerror="this.src='https://via.placeholder.com/300x400?text=No+Cover+Uploaded'">
+                <!-- ========================================== -->
+                <!-- START: BOOK CARD (Copy this to add books)  -->
+                <!-- ========================================== -->
+                <div class="book-card">
+                    <div class="cover-box">
+                        <img src="book1.jpg" alt="Book Cover" onerror="this.src='https://via.placeholder.com/300x400?text=Cover+Image'">
                     </div>
                     <h3>Complete ADRE Guide 2026</h3>
-                    <p>Complete notes in Assamese & Bengali for direct recruitment exams.</p>
-                    <div class="price">₹199 <span>₹399</span></div>
-                    <a href="book-template.html" class="btn btn-primary" style="width: 100%;">View & Buy Book</a>
-                </article>
+                    <p style="margin-top: 0.5rem; flex-grow: 1;">Complete notes in Assamese & Bengali for direct recruitment exams.</p>
+                    <div class="price">₹199</div>
+                    <a href="book1.html" class="btn btn-primary" style="width: 100%;">View Details & Buy</a>
+                </div>
+                <!-- END: BOOK CARD -->
+                <!-- ========================================== -->
 
-                <!-- BOOK 2 -->
-                <article class="book-card">
-                    <div class="book-image-container">
-                        <img src="book2.jpg" alt="SSC MTS Cover" onerror="this.src='https://via.placeholder.com/300x400?text=No+Cover+Uploaded'">
+                <!-- START: FREE BOOK CARD -->
+                <div class="book-card">
+                    <div class="cover-box">
+                        <img src="book2.jpg" alt="Book Cover" onerror="this.src='https://via.placeholder.com/300x400?text=Cover+Image'">
                     </div>
                     <h3>SSC MTS Solved Papers</h3>
-                    <p>Past 5 years solved questions with math shortcuts.</p>
-                    <div class="price">Free</div>
-                    <a href="path/to/free-book.pdf" download class="btn btn-outline" style="width: 100%;">Download PDF</a>
-                </article>
+                    <p style="margin-top: 0.5rem; flex-grow: 1;">Past 5 years solved questions with math shortcuts.</p>
+                    <div class="price" style="color: #000;">Free</div>
+                    <!-- Direct download link for free book -->
+                    <a href="my-free-book.pdf" download class="btn btn-outline" style="width: 100%;">Download PDF</a>
+                </div>
+                <!-- END: FREE BOOK CARD -->
 
             </div>
         </div>
     </section>
 
-    <!-- Footer & Auto-fill Contact Box -->
     <footer id="contact">
         <div class="container">
-            
-            <!-- Small Contact Box -->
             <div class="contact-box">
-                <h3>Have questions about a book?</h3>
-                <p>Click below to send me a direct email. The request will auto-fill for you.</p>
-                <!-- This href triggers the email client with pre-filled subject and body -->
-                <a href="mailto:Abhikdutta639@gmail.com?subject=Book%20Inquiry%20-%20ChetonaPublications&body=Hello%20Abhik%20Dutta,%0D%0A%0D%0AI%20am%20reaching%20out%20regarding%20the%20educational%20books%20on%20ChetonaPublications.%0D%0A%0D%0AMy%20question%20is:%20" class="btn btn-primary">
+                <h2>Have questions?</h2>
+                <p style="margin: 1rem 0;">Click below to send a direct email. The request will auto-fill for you.</p>
+                <a href="mailto:Abhikdutta639@gmail.com?subject=Book%20Inquiry%20-%20ChetonaPublications&body=Hello%20Abhik%20Dutta,%0D%0A%0D%0AI%20am%20reaching%20out%20regarding%20your%20educational%20books.%0D%0A%0D%0AMy%20question%20is:%20" class="btn btn-primary">
                     Email: Abhikdutta639@gmail.com
                 </a>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA.</p>
-            </div>
+            <p>Built and Directed by ABHIK DUTTA | &copy; 2026 ChetonaPublications.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // Smooth Scroll for links starting with #
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
