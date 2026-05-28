@@ -3,65 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | ChetonaPublications</title>
+    <title>About & Philosophy | ChetonaPublications</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="Cp.png">
     
     <style>
-        /* Exact same styling to keep design consistent */
-        :root { --bg: #ffffff; --text: #000000; --accent: #2563eb; --accent-hover: #1d4ed8; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+        /* === STRICT 3-COLOR SYSTEM === */
+        :root {
+            --bg: #ffffff;           /* Pure White */
+            --text: #000000;         /* Solid Black */
+            --accent: #2563eb;       /* Blue Accent */
+            --accent-hover: #1d4ed8; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.8; }
         a { text-decoration: none; color: inherit; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        h1, h2, h3 { font-weight: 900; line-height: 1.2; }
+        p { font-size: 1.15rem; color: #333; margin-bottom: 1.5rem; font-weight: 500; }
+
+        /* === UPGRADED BUTTONS === */
+        .btn { 
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px; 
+            padding: 0.85rem 2.2rem; border-radius: 8px; font-size: 1.15rem; font-weight: 800; 
+            cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
+            border: 2px solid var(--accent); 
+        }
+        .btn-primary { background-color: var(--accent); color: var(--bg); }
+        .btn-primary:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); box-shadow: 0 6px 12px rgba(37, 99, 235, 0.2); }
+        .btn-outline { background-color: transparent; color: var(--text); border-color: transparent; padding: 0.5rem 1rem;}
+        .btn-outline:hover { color: var(--accent); background: #f8fafc; }
+        .btn:active { transform: scale(0.95); box-shadow: none; }
+        .btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+        .btn-primary:hover svg { transform: translateX(3px); }
         
-        nav { position: fixed; width: 100%; top: 0; background: var(--bg); padding: 1rem 0; z-index: 100; border-bottom: 1px solid #ddd; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        /* Back Button SVG Hover Fix */
+        .btn-back:hover svg { transform: translateX(-3px); }
+
+        /* === NAVBAR === */
+        nav { position: fixed; width: 100%; top: 0; background: var(--bg); padding: 1.5rem 0; z-index: 100; border-bottom: 1px solid #e5e7eb; }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem;}
+        .logo { font-size: 1.5rem; font-weight: 900; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--accent); }
-        .nav-links a:hover { color: var(--accent); }
 
-        .about-section { padding: 120px 0 6rem; text-align: center; }
-        .about-section h1 { font-size: 3rem; margin-bottom: 2rem; }
-        .about-section h1 span { color: var(--accent); }
+        /* === PAGE CONTENT === */
+        .page-header { padding: 150px 0 3rem; text-align: center; border-bottom: 1px solid #e5e7eb; margin-bottom: 4rem;}
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .page-header h1 span { color: var(--accent); }
+
+        /* Philosophy Block */
+        .philosophy-block { border-left: 5px solid var(--accent); padding-left: 2rem; margin: 3rem 0; background: #f8fafc; padding: 2rem; border-radius: 0 12px 12px 0; }
+        .philosophy-block p { font-size: 1.3rem; font-weight: 600; font-style: italic; color: var(--text); margin-bottom: 0; }
+        .philosophy-author { margin-top: 1rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+
+        .content-section { margin-bottom: 4rem; }
+        .content-section h2 { font-size: 2.2rem; margin-bottom: 1.5rem; }
         
-        .trust-box { border: 1px solid #ddd; border-radius: 8px; padding: 3rem; margin-top: 2rem; text-align: left;}
-        .trust-box h2 { margin-bottom: 1rem; color: var(--accent); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px;}
-        .trust-box p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+        /* Contact Box */
+        .contact-box { text-align: center; padding: 3rem; border: 1px solid #e5e7eb; border-radius: 12px; background: #fafafa; margin-top: 4rem;}
 
-        footer { border-top: 1px solid #ddd; padding: 2rem 0; text-align: center; margin-top: 4rem;}
+        footer { border-top: 1px solid #e5e7eb; padding: 3rem 0; text-align: center; margin-top: 4rem; font-weight: 700;}
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <a href="index.html" class="logo">Chetona<span>Publications</span></a>
-            <div class="nav-links">
-                <a href="index.html">← Back to Store</a>
-            </div>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 28px; height: 28px;">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                Chetona<span>Publications</span>
+            </a>
+            
+            <!-- SVG Back Button -->
+            <a href="index.html" class="btn btn-outline btn-back" style="font-size: 1rem;">
+                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Store
+            </a>
         </div>
     </nav>
 
-    <div class="container about-section">
-        <h1>Building <span>Trust</span> in Education</h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Our mission is to provide high-quality, affordable, and accessible digital learning resources for students across Assam and Bengal.</p>
-        
-        <div class="trust-box">
-            <h2>The Vision</h2>
-            <p>Preparing for competitive exams like the ADRE, SSC, or D.El.Ed is difficult enough without having to worry about finding the right study materials. ChetonaPublications was created to solve this problem by offering structured, premium PDFs that you can download instantly.</p>
-            
-            <h2>Who We Are</h2>
-            <p><strong>Built and Directed by ABHIK DUTTA</strong></p>
-            <p>As a platform tailored specifically for Assamese and Bengali learners, we understand the local exam patterns, the syllabus requirements, and the language nuances better than generic national platforms. Every book is curated to ensure you are studying exactly what you need to succeed.</p>
-            
-            <h2>Secure & Reliable</h2>
-            <p>We use Razorpay integration to ensure 100% secure payments via UPI, Debit Card, or Net Banking. Once your payment is successful, you get immediate access to your digital files.</p>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Awakening <span>Minds</span></h1>
+            <p style="font-size: 1.5rem; max-width: 700px; margin: 0 auto;">The story, philosophy, and mission behind ChetonaPublications.</p>
         </div>
-    </div>
+    </header>
 
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        
+        <div class="content-section">
+            <h2>The Meaning of "Chetona"</h2>
+            <p>In our mother tongues of Assamese and Bengali, the word <strong>"Chetona" (চেতনা)</strong> translates to consciousness or profound awareness. This platform was not built merely to distribute study materials; it was built to ignite that awareness.</p>
+            <p>Preparing for competitive exams like the ADRE, SSC, or D.El.Ed is a journey that requires immense mental fortitude. We provide the exact structured, premium digital PDFs you need so that you can focus your energy on learning, rather than searching for resources.</p>
+        </div>
+
+        <div class="philosophy-block">
+            <p>"Education is not a privilege to be gatekept by expensive textbooks or geographic location. Digital learning transcends these boundaries. Give an aspirant the right tools, and they possess the power to rewrite their entire destiny."</p>
+            <div class="philosophy-author">— Abhik Dutta, Founder</div>
+        </div>
+
+        <div class="content-section">
+            <h2>Why This Platform Exists</h2>
+            <p>As the founder and director, I built <strong>ChetonaPublications</strong> because I understand the local exam patterns, syllabus requirements, and the language nuances unique to Assam and Bengal better than generic national platforms.</p>
+            <p>By keeping our books fully digital, we eliminate printing and shipping costs, passing those savings directly to the students. You get high-quality content instantly delivered to your device, ready to be studied anytime, anywhere.</p>
+            <p>Our official digital home is located at: <br>
+            <a href="https://ab2001k.github.io/ChetonaPublications" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">ab2001k.github.io/ChetonaPublications</a></p>
+        </div>
+
+        <!-- CONTACT BOX -->
+        <div class="contact-box">
+            <h2>Let's Connect</h2>
+            <p style="margin: 1rem 0; font-size: 1.15rem; color: #444;">Whether you have a question about a book, need guidance for your exams, or just want to share your thoughts, my inbox is always open to students.</p>
+            
+            <a href="mailto:abhikdutta639@gmail.com?subject=Reaching%20Out%20-%20ChetonaPublications" class="btn btn-primary" style="margin-top: 15px;">
+                Email: abhikdutta639@gmail.com
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA.</p>
+            <p>Built and Directed by ABHIK DUTTA | &copy; 2026 ChetonaPublications.</p>
         </div>
     </footer>
 
