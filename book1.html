@@ -221,10 +221,14 @@
         </div>
     </div>
 
+    <!-- ============================================== -->
+    <!-- MANUAL PAYMENT & VERIFICATION MODAL            -->
+    <!-- ============================================== -->
     <div class="modal-overlay" id="paymentModal">
         <div class="modal-box">
             <button class="modal-close" id="closeModal">✕</button>
 
+            <!-- STEP 1: PAYMENT OPTIONS -->
             <div id="step-options" style="display: none;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Complete Payment</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Choose how you want to pay ₹49</p>
@@ -233,15 +237,18 @@
                     Pay Via UPI App
                 </button>
                 
-                <button class="btn btn-outline" id="btn-show-qr" style="width: 100%; margin-bottom: 15px; background-color: #fff;">
+                <!-- Fixed invisible hover text by removing inline background-color -->
+                <button class="btn btn-outline" id="btn-show-qr" style="width: 100%; margin-bottom: 15px;">
                     Show QR Code
                 </button>
                 
-                <button class="btn btn-outline" id="btn-already-paid-modal" style="width: 100%; background-color: #fff;">
+                <!-- Fixed invisible hover text by removing inline background-color -->
+                <button class="btn btn-outline" id="btn-already-paid-modal" style="width: 100%;">
                     I Have Paid
                 </button>
             </div>
 
+            <!-- STEP 2: SHOW QR CODE -->
             <div id="step-qr" style="display: none;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent);">Pay ₹49 via UPI</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Scan this QR code with any UPI app</p>
@@ -250,11 +257,18 @@
                 
                 <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 1.5rem; color: #1e293b;">UPI ID: abhikdutta639@okicici</p>
                 
-                <button class="btn btn-outline" id="btn-i-have-paid" style="width: 100%; background-color: #fff;">
+                <!-- Fixed invisible hover text by removing inline background-color -->
+                <button class="btn btn-outline" id="btn-i-have-paid" style="width: 100%; margin-bottom: 10px;">
                     I Have Paid ₹49
+                </button>
+                
+                <!-- NEW: Close QR Code Button -->
+                <button class="btn btn-outline" id="btn-close-qr" style="width: 100%;">
+                    Close QR Code
                 </button>
             </div>
 
+            <!-- STEP 3: VERIFICATION OPTIONS -->
             <div id="step-verify" style="display: none;">
                 <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Verify Payment</h2>
                 <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 600;">Choose a method to submit your payment screenshot and receive the eBook.</p>
@@ -273,12 +287,15 @@
             </div>
         </div>
     </div>
+    <!-- ============================================== -->
+
     <footer>
         <div class="container">
             <p>&copy; 2026 ChetonaPublications. Built and Directed by ABHIK DUTTA.</p>
         </div>
     </footer>
 
+    <!-- LOGIC SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buyBtn = document.getElementById('manual-buy-btn');
@@ -294,6 +311,12 @@
             const btnShowQr = document.getElementById('btn-show-qr');
             const btnAlreadyPaidModal = document.getElementById('btn-already-paid-modal');
             const btnPaidQr = document.getElementById('btn-i-have-paid');
+            const btnCloseQr = document.getElementById('btn-close-qr'); // NEW
+
+            // Detect if user is on a mobile device
+            function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
 
             // 1. BUY NOW BUTTON CLICKED
             buyBtn.addEventListener('click', (e) => {
@@ -343,6 +366,12 @@
             btnPaidQr.addEventListener('click', () => {
                 stepQr.style.display = 'none';
                 stepVerify.style.display = 'block';
+            });
+
+            // NEW: 5.b CLOSE QR CODE (Go back to options)
+            btnCloseQr.addEventListener('click', () => {
+                stepQr.style.display = 'none';
+                stepOptions.style.display = 'block';
             });
 
             // 6. MAIN PAGE: ALREADY PAID TEXT LINK
