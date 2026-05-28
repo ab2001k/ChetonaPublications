@@ -7,6 +7,7 @@
     --clr-royal: #0d47a1;
     --clr-cyan: #00bcd4;
     --clr-gold: #ffd700;
+    --clr-green: #00e676; /* Added for Free Books */
     --clr-white: #ffffff;
     --clr-text-muted: #a0aabf;
     
@@ -31,14 +32,8 @@ body {
     overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
 /* ==========================================================================
    Utility Classes & Components
@@ -51,11 +46,7 @@ ul {
     border-radius: 16px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
 .section-title {
     font-size: 2.5rem;
@@ -118,62 +109,15 @@ nav.scrolled {
     border-bottom: 1px solid var(--glass-border);
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.logo span {
-    color: var(--clr-cyan);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    transition: var(--transition);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--clr-gold);
-    transition: var(--transition);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+.logo img { height: 40px; }
+.logo span { color: var(--clr-cyan); }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: var(--transition); }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--clr-gold); transition: var(--transition); }
+.nav-links a:hover::after { width: 100%; }
+.hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
 /* ==========================================================================
    Hero Section
@@ -188,255 +132,62 @@ nav.scrolled {
     text-align: center;
     background: radial-gradient(circle at center, var(--clr-indigo) 0%, var(--clr-dark) 70%);
 }
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.particle {
-    position: absolute;
-    background: var(--clr-cyan);
-    border-radius: 50%;
-    opacity: 0.3;
-    animation: float 10s infinite ease-in-out;
-}
-
+.particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; }
+.particle { position: absolute; background: var(--clr-cyan); border-radius: 50%; opacity: 0.3; animation: float 10s infinite ease-in-out; }
 @keyframes float {
     0%, 100% { transform: translateY(0) translateX(0); opacity: 0.1; }
     50% { transform: translateY(-100px) translateX(20px); opacity: 0.5; box-shadow: 0 0 10px var(--clr-cyan); }
 }
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--clr-text-muted);
-    margin-bottom: 2.5rem;
-}
-
-.founder-text {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    color: var(--clr-gold) !important;
-    text-transform: uppercase;
-}
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+.hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 0 0 20px rgba(0, 188, 212, 0.3); }
+.hero p { font-size: 1.2rem; color: var(--clr-text-muted); margin-bottom: 2.5rem; }
+.founder-text { margin-top: 3rem; font-size: 0.9rem; letter-spacing: 2px; color: var(--clr-gold) !important; text-transform: uppercase; }
 
 /* ==========================================================================
-   Featured Books Layout
+   Book Store Layout
    ========================================================================== */
-.section {
-    padding: 6rem 0;
-    position: relative;
-}
+.section { padding: 6rem 0; position: relative; }
+.book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.book-card { padding: 1.5rem; transition: var(--transition); position: relative; display: flex; flex-direction: column; }
+.book-card:hover { transform: translateY(-10px); border-color: var(--clr-cyan); box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15); }
 
-.book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
+.badge { position: absolute; top: -10px; right: -10px; background: var(--clr-gold); color: var(--clr-dark); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; z-index: 10; }
+.badge-free { background: var(--clr-green); color: var(--clr-dark); }
+.badge-premium { background: var(--clr-cyan); color: var(--clr-dark); }
 
-.book-card {
-    padding: 1.5rem;
-    transition: var(--transition);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.book-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--clr-cyan);
-    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.15);
-}
-
-.badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: var(--clr-gold);
-    color: var(--clr-dark);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    z-index: 10;
-}
-
-.book-cover {
-    height: 300px;
-    background: linear-gradient(45deg, var(--clr-royal), var(--clr-indigo));
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--clr-white);
-    font-size: 0.9rem;
-}
-
-.book-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.book-card .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--clr-cyan);
-    margin-bottom: 1rem;
-}
-
-.book-card .actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: auto;
-}
-
-.book-card .actions .btn {
-    flex: 1;
-    padding: 0.6rem;
-    font-size: 0.9rem;
-}
+.book-cover { height: 300px; background: linear-gradient(45deg, var(--clr-royal), var(--clr-indigo)); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--clr-white); font-size: 0.9rem; text-align: center; padding: 1rem;}
+.book-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.book-card .price { font-size: 1.5rem; font-weight: bold; color: var(--clr-cyan); margin-bottom: 1rem; }
+.book-card .price.free-text { color: var(--clr-green); }
+.book-card .actions { display: flex; gap: 1rem; margin-top: auto; flex-wrap: wrap; }
+.book-card .actions .btn { flex: 1; padding: 0.6rem; font-size: 0.9rem; min-width: 100%; }
 
 /* ==========================================================================
-   Video Learning Section
+   Scroll Animations & Footer
    ========================================================================== */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.video-card {
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-}
-
-.video-thumb {
-    height: 200px;
-    background: var(--clr-indigo);
-    position: relative;
-    transition: var(--transition);
-}
-
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: rgba(0, 188, 212, 0.8);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.video-card:hover .play-btn {
-    background: var(--clr-cyan);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.video-info {
-    padding: 1rem;
-}
+footer { background: rgba(0, 0, 0, 0.5); border-top: 1px solid var(--glass-border); padding: 4rem 0 2rem; margin-top: 4rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+.footer-col h4 { color: var(--clr-cyan); margin-bottom: 1.5rem; }
+.footer-col ul li { margin-bottom: 0.8rem; color: var(--clr-text-muted); }
+.footer-col ul li a:hover { color: var(--clr-gold); }
+.copyright { text-align: center; color: var(--clr-text-muted); border-top: 1px solid var(--glass-border); padding-top: 2rem; font-size: 0.9rem; }
 
 /* ==========================================================================
-   Scroll Animations (JS Controlled)
+   Book Template Specific
    ========================================================================== */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease-out;
-}
+.book-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
+.book-hero-image { width: 100%; height: 500px; background: linear-gradient(135deg, var(--clr-indigo), var(--clr-royal)); border-radius: 12px; box-shadow: -20px 20px 30px rgba(0,0,0,0.5); transform: perspective(1000px) rotateY(-15deg); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+.book-hero-image:hover { transform: perspective(1000px) rotateY(0deg); }
+.book-meta { margin: 1.5rem 0; color: var(--clr-text-muted); }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 768px) {
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--clr-dark); flex-direction: column; padding: 2rem; text-align: center; border-bottom: 1px solid var(--glass-border); }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .hero h1 { font-size: 2.5rem; }
+    .book-hero { grid-template-columns: 1fr; }
+    .book-hero-image { height: 350px; transform: none; }
 }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer {
-    background: rgba(0, 0, 0, 0.5);
-    border-top: 1px solid var(--glass-border);
-    padding: 4rem 0 2rem;
-    margin-top: 4rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer-col h4 {
-    color: var(--clr-cyan);
-    margin-bottom: 1.5rem;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.8rem;
-    color: var(--clr-text-muted);
-}
-
-.footer-col ul li a:hover {
-    color: var(--clr-gold);
-}
-
-.copyright {
-    text-align: center;
-    color: var(--clr-text-muted);
-    border-top: 1px solid var(--glass-border);
-    padding-top: 2rem;
-    font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   Book Template Specific Styles
-   ========================================================================== */
-.book-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-top: 4rem;
-}
-
-.book-hero-image {
-    width: 100%;
-    height: 500px;
-    background: linear-gradient(135deg, var(--clr-indigo), var(--clr-royal));
-    border-radius: 12px;
-    box-shadow: -20px 20px 30px rgba(0,0,0,0.5);
-    transform: perspective(1000px) rotateY(-15deg);
-    transition: var(--transition);
-}
-
-.book-hero-image:hover {
-    transform: perspective(10
